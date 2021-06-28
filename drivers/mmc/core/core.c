@@ -65,7 +65,6 @@ static const unsigned freqs[] = { 400000, 300000, 200000, 100000 };
 bool use_spi_crc = 0;
 module_param(use_spi_crc, bool, 0664);
 
-
 static int mmc_schedule_delayed_work(struct delayed_work *work,
 				     unsigned long delay)
 {
