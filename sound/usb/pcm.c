@@ -1100,9 +1100,13 @@ static int snd_usb_pcm_prepare(struct snd_pcm_substream *substream)
 	subs->last_frame_number = 0;
 	runtime->delay = 0;
 
-	/* for playback, submit the URBs now; otherwise, the first hwptr_done
-	 * updates for all URBs would happen at the same time when starting */
-	if (subs->direction == SNDRV_PCM_STREAM_PLAYBACK)
+	/* check whether early start is needed for playback stream */
+	subs->early_playback_start =
+		subs->direction == SNDRV_PCM_STREAM_PLAYBACK &&
+		(!chip->lowlatency ||
+		 (subs->data_endpoint->nominal_queue_size >= subs->buffer_bytes));
+
+	if (subs->early_playback_start)
 		ret = start_endpoints(subs);
 
  unlock:
