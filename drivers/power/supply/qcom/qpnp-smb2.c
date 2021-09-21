@@ -621,6 +621,9 @@ static int smb2_usb_get_prop(struct power_supply *psy,
 		val->intval = get_client_vote(chg->disable_power_role_switch,
 					      MOISTURE_VOTER);
 		break;
+	case POWER_SUPPLY_PROP_RERUN_APSD:
+		val->intval = chg->float_rerun_apsd;
+		break;
 	default:
 		pr_err("get prop %d is not supported in usb\n", psp);
 		rc = -EINVAL;
