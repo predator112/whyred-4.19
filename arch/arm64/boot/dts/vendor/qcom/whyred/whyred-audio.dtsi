@@ -17,6 +17,30 @@
 	qcom,pri-mi2s-gpios = <&cdc_pri_mi2s_gpios>;
 	/delete-property/ qcom,msm-micbias2-ext-cap;
 	/delete-property/ qcom,us-euro-gpios;
+		"SPK_RX_BIAS", "INT_MCLK0",
+		"INT_LDO_H", "INT_MCLK0",
+		"RX_I2S_CLK", "INT_MCLK0",
+		"TX_I2S_CLK", "INT_MCLK0",
+		"MIC BIAS External", "Handset Mic",
+		"MIC BIAS External2", "Headset Mic",
+		"MIC BIAS External", "Secondary Mic",
+		"AMIC1", "MIC BIAS External",
+		"AMIC2", "MIC BIAS External2",
+		"AMIC3", "MIC BIAS External",
+		"DMIC1", "MIC BIAS External",
+		"MIC BIAS External", "Digital Mic1",
+		"DMIC2", "MIC BIAS External",
+		"MIC BIAS External", "Digital Mic2",
+		"DMIC3", "MIC BIAS External",
+		"MIC BIAS External", "Digital Mic3",
+		"DMIC4", "MIC BIAS External",
+		"MIC BIAS External", "Digital Mic4",
+		"PDM_IN_RX1", "PDM_OUT_RX1",
+		"PDM_IN_RX2", "PDM_OUT_RX2",
+		"PDM_IN_RX3", "PDM_OUT_RX3",
+		"ADC1_IN", "ADC1_OUT",
+		"ADC2_IN", "ADC2_OUT",
+		"ADC3_IN", "ADC3_OUT";
 };
 
 &dai_mi2s0 {
@@ -94,6 +118,8 @@
 		ti,cdc-reset-gpio = <&tlmm 77 0>;
 		ti,irq-gpio = <&tlmm 73 0>;
 		ti,i2s-bits = <16>;
+		ti,bypass-tmax = <0>;   /* 0, not bypass; 1, bypass */
+		ti,bob-fast-profile = <1>; /* 1:voice_handset */
 		status = "ok";
 	};
 };
