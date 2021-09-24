@@ -18,7 +18,6 @@
 #include <linux/clk.h>
 #include <linux/mutex.h>
 #include <linux/platform_device.h>
-#include <linux/pm_qos.h>
 #include <linux/spinlock.h>
 #include "vmem/vmem.h"
 #include "vidc_hfi_api.h"
@@ -254,7 +253,6 @@ struct venus_hfi_device {
 	struct hfi_packetization_ops *pkt_ops;
 	enum hfi_packetization_type packetization_type;
 	struct msm_vidc_cb_info *response_pkt;
-	struct pm_qos_request qos;
 	unsigned int skip_pc_count;
 	struct msm_vidc_capability *sys_init_capabilities;
 };
