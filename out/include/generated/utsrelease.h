@@ -1,0 +1,1 @@
+#define UTS_RELEASE "4.19.157CAF-08000-sdm660"
